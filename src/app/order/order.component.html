@@ -1,0 +1,50 @@
+
+
+<style>
+
+    article{
+        background-image: url("/assets/homebg.jfif");
+            background-repeat: no-repeat;
+            background-size: cover;
+    }
+    </style>
+
+
+<article>
+
+
+<div class="d-flex flex-">
+    <div class="card mt-4 border-black text-primary" style="margin-left: 3%; margin-right: 75%; " >
+    <div class="card-body "><img src={{pimg}} alt="" style="width: 350px; height: 250px;"> <br>
+    
+    
+   
+    <label for="" class="card-title"><b>{{pname | uppercase}}</b></label>
+     <br>
+    <label for=""><b>Price:</b></label>
+    <b>{{price | discount:5 | currency:'INR' }}</b> <br>
+    <label for=""><b>Description: </b></label>
+    <b>{{pdes}}</b><br>
+    </div>
+    
+    <div class="card-footer"  style="width: 372px;">
+    <input type="number" [(ngModel)]="q" name="" class="form-control" placeholder="quantity" min="1" max="8"> <br>
+    <button class="btn btn-primary" (click)="bill()"><b>Confirm Order</b></button>
+    <button class="btn btn-danger ms-5" (click)="return()"><b>Remove Order</b></button>
+    
+    <div style="font-size: 150%;">Total:
+    {{q * price | discount:5 | currency:'INR'}}
+    
+    </div>
+    </div>
+    
+    </div>
+    
+    </div>
+
+    <div id="dbill">
+
+    </div>
+
+<br><br><br>
+</article>

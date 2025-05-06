@@ -1,0 +1,39 @@
+
+
+<style>
+
+article{
+    background-image: url("/assets/homebg.jfif");
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+</style>
+
+
+<article class="container-fluid">
+
+    
+
+    <div class="row " >
+        <div class="mt-2 d-flex justify-content-center">        <input type="search" name="" id="" placeholder="search" class="form-control " style="width: 40%;"></div>
+    <div class="col-md-4 d-flex justify-content-around mt-3" *ngFor=" let i of arr">
+
+        <div class="card"  style="width: 400px;">
+            <div class="card-body"  >
+                <div class="card-title text-center"><b><u>{{i.pname | uppercase}}</u></b></div>
+                <div class="text-center"><img src={{i.pimg}} alt="" style="width: 350px; height: 250px;"></div><br>
+                <div class="card-text">{{i.pdes}}</div><br>
+                <div class="card-text">Price:<del>{{i.price |currency:"INR"}}</del></div>
+                <div class="card-text">Discount Price:{{i.price | discount:5 | currency:"INR" }}</div>
+            </div>
+
+            <div class="card-footer  ">
+                <a routerLink="/order" class="btn btn-success btn-sm form-control mb-2" [queryParams]="{a:i.pid, b:i.pname, c:i.price, d:i.pdes, e:i.pimg}"><b>Order Now</b></a><br>
+                <a routerLink="/cart" class="btn btn-info btn-sm  form-control" [queryParams]="{a:i.pid, b:i.pname, c:i.price, d:i.pdes, e:i.pimg}"><b>Add to Cart</b></a></div>
+        </div>
+
+        
+
+    </div>
+    </div>
+</article>

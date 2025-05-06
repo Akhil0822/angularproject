@@ -1,0 +1,73 @@
+<!-- <p>login works!</p> -->
+
+<style>
+    .v
+    {
+        border: 2px solid rgb(74, 214, 233);
+
+
+    }
+    .i
+    {
+        border: 2px solid rgb(0, 255, 64);
+
+    }
+    fieldset{
+       background-color: crimson; 
+       color: white;
+       font-weight: bold;
+       font-size: 150%;
+       
+    }
+    
+    article
+    {
+        background-image: url("/assets/homebg.jfif");
+        background-repeat: no-repeat;
+        background-size: cover;
+     
+        
+    }
+   
+</style>
+
+<article>
+    
+<br>
+<div style="display: flex; justify-content: center; " id="d1" >
+    <fieldset style="border: 4px solid black;border-radius: 3%; " class="p-3 mt-5" >
+<form  #f="ngForm" (ngSubmit) = 'validate(f.value)' >
+    <div class="text-center">
+        <img src="/assets/user (1).png" alt="" width="100px" height="100px"><br><br>
+    </div>
+    <div class="d-flex justify-content-center flex-column">
+    <label for="">Enter Email</label>
+    <input type="email" id="inp" name="uname" ngModel #u="ngModel" [class.v]="u.valid" [class.i]="u.touched && u.invalid" required min="5"  placeholder="email" style="border: 4px solid black;
+        border-radius: 2%;">
+
+    <div style=" color: rgb(238, 228, 96) ;">
+        <div *ngIf="u.errors?.['required'] && u.touched">Incorrect username</div>
+
+        <div *ngIf="u.errors?.['pattern'] && u.touched">Invaild pattern</div>
+    </div><br>
+
+
+    <label for="">Enter Password</label>
+    <input type="password" id="inp2" name="pass" ngModel #p="ngModel" [class.v]="p.valid" [class.i]="p.touched && p.invalid" required min="5" pattern="[a-zA-Z0-9]+" placeholder="password" style="border: 4px solid black;
+        border-radius: 2%;">
+
+    <div style=" color: rgb(238, 228, 96) ;">
+        <div *ngIf="p.errors?.['required'] && p.touched">Incorrect password</div>
+
+        <div *ngIf="p.errors?.['pattern'] && p.touched">Invaild pattern</div>
+    </div>  
+    </div><br>
+
+    <div class="text-center" >
+    <input type="submit" value="Login" class="btn btn-success" [disabled]="f.invalid"  style="font-weight: bold;"></div>
+        <p style="font-size: 16px;">If you don't have an existing account create new <a routerLink="/register" class="text text-decoration-none">register</a></p>
+</form>
+</fieldset>
+</div>
+<br><br><br><br><br><br><br><br><br>
+<article>

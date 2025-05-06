@@ -1,0 +1,72 @@
+<style>
+    article{
+        background-image: url("/assets/homebg.jfif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0.90;
+    }
+    #d1
+    {
+        opacity: 1;
+    }
+    .v
+            {
+                border: 2px solid green;
+                background-color: rgb(161, 235, 161);
+
+            }
+            .i
+            {
+                border: 2px solid red;
+                background-color: grey;
+            }
+</style>
+
+
+<article>
+
+<div style="display: flex; justify-content: center;"  >
+<!-- <fieldset style="border: 3px solid black ; " class="mt-3"> -->
+    <div class="card mt-5" style="width: 25%;" id="d1">
+        <div class="card-header text-center text-primary" style="font-size: 20px;" ><b>Register</b></div>
+        <div class="card-body "  >
+<form action="" class="form-group " #f="ngForm" (ngSubmit)="store(f.value)"  >
+    <div class=" py-3">
+  
+    <input type="text" name="uname" id="" class="form-control" placeholder="username" required pattern="[a-zA-Z]+"  min="5" ngModel #u="ngModel" [class.v]="u.valid" [class.i]="u.invalid && u.touched">
+    </div>
+    <div class=" py-3">
+    
+        <input type="email" name="eml" id=""  class="form-control" placeholder="email" required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" ngModel #e="ngModel" [class.v]="e.valid" [class.i]="e.invalid && e.touched">
+    </div>
+    <div class=" py-3">
+       
+        <input type="password" name="pwd" id=""  class="form-control" placeholder="password" required pattern="[a-zA-Z0-9]+" min="5" ngModel #p="ngModel" [class.v]="p.valid" [class.i]="p.invalid && p.touched">
+    </div>
+    <div class=" py-3" >
+        
+        <input type="password" name="conpwd" id=""  class="form-control" placeholder="confirm password" required pattern="[a-zA-Z0-9]+" min="5" ngModel #cpwd="ngModel" [class.v]="cpwd.valid" [class.i]="cpwd.invalid && cpwd.touched">
+    </div>
+    <div class=" py-3">
+        
+        <input type="radio" name="x" id=""  class="ms-3" class="form-check-input" >Male
+        <input type="radio" name="x" id=""  class="ms-3" class="form-check-input" >Female
+    </div>
+    <div class=" py-3" >
+        <select  id=""   class="form-control" required   >
+            <option  *ngFor="let i of countname" name="cnt">{{i}}</option>
+            
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Register" class="btn btn-warning form-control "  >
+    </div>
+
+</form>
+</div>
+<!-- </fieldset> -->
+</div>
+</div>
+<br><br>
+
+</article>
